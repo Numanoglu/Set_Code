@@ -27,7 +27,6 @@ class GameController:
         for choice in choices:
             self.deck.remove(choice)
 
-    # TODO: make sample variable!
     def new_deal(self, set_size=SET_SIZE):
         choices = []
         if 0 < len(self.deck):

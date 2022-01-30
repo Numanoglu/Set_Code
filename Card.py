@@ -1,4 +1,4 @@
-class Card():
+class Card:
     def __init__(self, name, colour, quantity, form, plenty):
         self.name = name
         self.colour = colour
@@ -26,11 +26,10 @@ class Card():
                 },
         }
         self.card_color = {
-            'lila':(204,0,204),
-            'blue': (0,0,255),
-            'green': (0,255,0)
+            'lila': (204, 0, 204),
+            'blue': (0, 0, 255),
+            'green': (0, 255, 0)
         }
-
 
     def __repr__(self):
         return "<" + " ".join((self.name, self.colour, self.form, self.plenty, self.quantity)) + ">"

@@ -1,6 +1,6 @@
 from consts import *
 from util import *
-from solver import *
+from lib_solver import *
 import sys
 
 
@@ -34,15 +34,10 @@ def text_mode(gc):
 def get_input(gc):
     cards = gc.cards_in_play
     if AUTOMATED:
-        # valid_combinations = try_combination(cards)  # If we were to use lib_solver we use this
-        valid_combinations=solve(gc.cards_in_play)
+        valid_combinations = try_combination(gc.cards_in_play)
         if valid_combinations:
-            print("A: ", valid_combinations[0])
+            print("Valid Combo: ", valid_combinations[0])
             return valid_combinations[0]
-            # For original solvers_check method!
-            # print("A: ", valid_combinations[0][0])
-            # return valid_combinations[0][0]
-            
         else:
             print("No combination found, asking for skipping!")
             return '0'

@@ -29,7 +29,6 @@ class GameView:
         background = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
         background.fill(pygame.Color('#000000'))
 
-
         self.generate_card_views()
 
         clock = pygame.time.Clock()
@@ -46,7 +45,6 @@ class GameView:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or (event.type == pygame.KEYUP and event.key == pygame.K_ESCAPE):
                     is_running = False
-
 
                 window_surface.blit(background, (0, 0))
                 # Button handling
@@ -70,19 +68,19 @@ class GameView:
 
                                     # refresh buttons to show the info
                                     self.info_text = 'Its a SET!'
-                                    # Take out, use inline for loop (list comprehention)
+                                    # Take out, use inline for loop (list comprehension)
                                     for card_slot in self.card_slots:
                                         card_slot.selected = False
                                         card_slot.clicked = False
                                 else:
-                                    #refresh buttons to show the info
+                                    # refresh buttons to show the info
                                     self.info_text = 'No SET!'
 
                                 if len(gc.deck) == 0:
                                     self.info_text = 'Final cards'
                                 self.generate_buttons()
 
-            pygame.display.update()            
+            pygame.display.update()
         pygame.quit()
 
     # Button options
@@ -98,8 +96,8 @@ class GameView:
         img = pygame.image.load('assets/btn.png').convert_alpha()
         for i, card in enumerate(self.gc.cards_in_play):
             pos_x, pos_y = get_pos(i)
-            self.card_slots.append(CardView(self, card, PADDING + pos_x * CARD_WIDTH, PADDING + pos_y * CARD_HEIGHT, img, 0.8))
-
+            self.card_slots.append(
+                CardView(self, card, PADDING + pos_x * CARD_WIDTH, PADDING + pos_y * CARD_HEIGHT, img, 0.8))
 
     def less_than_max_cards_selected(self):
         return len([s.card for s in self.card_slots if s.selected]) < SET_SIZE
@@ -110,4 +108,3 @@ class GameView:
         self.generate_card_views()
         self.info_text = 'Cheater'
         self.generate_buttons()
-
